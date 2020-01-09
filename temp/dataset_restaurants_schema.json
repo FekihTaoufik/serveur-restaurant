@@ -1,0 +1,59 @@
+[
+  "{{repeat(50)}}",
+  {
+    "_id": "{{objectId()}}",
+    "restaurant_id": "{{index()}}",
+    "name": "{{surname()}}",
+    "address": {
+      "building": "{{integer([0], [5000])}}",
+      "coord": [
+        "{{floating(-90.000001, 90)}}",
+        "{{floating(-180.000001, 180)}}"
+      ],
+      "street": "{{street()}}",
+      "zipcode": "{{integer([0], [5000])}}"
+    },
+    "borough": "{{city()}}",
+    "cuisine": "{{random(\"moléculaire\",\"gastronomique\",\"exotique\",\"nouvelle cuisine\",\"traditionnelle\",)}}",
+    "grades": [
+      "{{repeat(3,25)}}",
+      {
+        "id": "{{index()}}",
+        "name": "{{surname()}}",
+        "photo": "",
+        "grade": "{{floating(0.0,5)}}",
+        "comment": "{{lorem(2)}}"
+      }
+    ],
+    "menus": [
+      "{{repeat(3)}}",
+      {
+        "id": "{{index([0])}}",
+        "name": "{{surname()}}",
+        "price": "{{floating(0.5,25)}}",
+        "dishes": [
+          "{{repeat(2,5)}}",
+          {
+            "id": "{{index()}}",
+            "name": "{{surname()}}",
+            "type": "{{random(\"Accompagnements‎\",\"Amuse bouches‎\",\"Bases‎\",\"Boissons‎\",\"Confitures‎\",\"Desserts‎\",\"Entrées‎\",\"Fondues‎\",\"Fritures‎\",\"Galettes‎\",\"Pains‎\",\"Patés‎\",\"Pâtes alimentaires‎\",\"Petits-déjeuners‎\",\"Plat principal‎\",\"Poissons‎\",\"Recettes de pizzas‎\",\"Recettes de ragoût‎\",\"Recettes de tartes‎\",\"Salades‎\",\"Sandwiches‎\",\"Soupes‎\",\"Sucreries‎\",\"Viande‎\")}}",
+            "description": "{{lorem(15)}}",
+            "photo": "",
+            "price": "{{floating(0.5,25)}}"
+          }
+        ]
+      }
+    ],
+    "carte": [
+      "{{repeat(2,6)}}",
+      {
+        "id": "{{index()}}",
+        "name": "{{surname()}}",
+        "type": "{{random(\"Accompagnements‎\",\"Amuse bouches‎\",\"Bases‎\",\"Boissons‎\",\"Confitures‎\",\"Desserts‎\",\"Entrées‎\",\"Fondues‎\",\"Fritures‎\",\"Galettes‎\",\"Pains‎\",\"Patés‎\",\"Pâtes alimentaires‎\",\"Petits-déjeuners‎\",\"Plat principal‎\",\"Poissons‎\",\"Recettes de pizzas‎\",\"Recettes de ragoût‎\",\"Recettes de tartes‎\",\"Salades‎\",\"Sandwiches‎\",\"Soupes‎\",\"Sucreries‎\",\"Viande‎\")}}",
+        "description": "{{lorem(15)}}",
+        "photo": "",
+        "price": "{{floating(0.5,25)}}"
+      }
+    ]
+  }
+]
