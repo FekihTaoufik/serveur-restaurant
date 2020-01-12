@@ -1,5 +1,4 @@
 var MongoClient = require("mongodb").MongoClient;
-var ObjectId = require("mongodb").ObjectID;
 
 var assert = require("assert");
 //var url = 'mongodb://localhost:27017/test';
@@ -86,12 +85,12 @@ exports.findRestaurantById = function(id, callback) {
     var db = client.db(dbName);
     if (!err) {
       // La requete mongoDB
-
-      let myquery = { _id: ObjectId(id) };
+      console.log(id);
+      let myquery = { _id: id };
 
       db.collection("restaurants").findOne(myquery, function(err, data) {
         let reponse;
-
+        console.log(data);
         if (!err) {
           reponse = {
             succes: true,
@@ -168,7 +167,7 @@ exports.updateRestaurant = function(id, formData, callback) {
     var db = client.db(dbName);
 
     if (!err) {
-      let myquery = { _id: ObjectId(id) };
+      let myquery = { _id: id };
       let newvalues = {
         name: formData.nom,
         cuisine: formData.cuisine
@@ -210,7 +209,7 @@ exports.deleteRestaurant = function(id, callback) {
     var db = client.db(dbName);
 
     if (!err) {
-      let myquery = { _id: ObjectId(id) };
+      let myquery = { _id: id };
 
       db.collection("restaurants").deleteOne(myquery, function(err, result) {
         if (!err) {
