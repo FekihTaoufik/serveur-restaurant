@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 8080;
+const port = 7000;
 const server = require("http").Server(app);
 // pour les formulaires multiparts
 var multer = require("multer");
