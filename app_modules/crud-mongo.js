@@ -125,10 +125,7 @@ exports.createRestaurant = function(formData, callback) {
     var db = client.db(dbName);
 
     if (!err) {
-      let toInsert = {
-        name: formData.nom,
-        cuisine: formData.cuisine
-      };
+      let toInsert = formData;
       console.dir(JSON.stringify(toInsert));
       db.collection("restaurants").insert(toInsert, function(err, insertedId) {
         let reponse;
@@ -168,10 +165,8 @@ exports.updateRestaurant = function(id, formData, callback) {
 
     if (!err) {
       let myquery = { _id: id };
-      let newvalues = {
-        name: formData.nom,
-        cuisine: formData.cuisine
-      };
+      delete formData._id;
+      let newvalues = formData;
 
       db.collection("restaurants").replaceOne(myquery, newvalues, function(
         err,
